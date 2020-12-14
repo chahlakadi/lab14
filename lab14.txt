@@ -1,0 +1,119 @@
+
+Lab14
+
+1. student@ubuntu:~/Desktop/chahla/lab14$ git clone http://github.com/beagleboard/linux.git
+
+2. student@ubuntu:~/Desktop/chahla/lab14/linux$ git checkout remotes/origin/4.19 -b 4.19
+
+3. student@ubuntu:~/Desktop/chahla/lab14/linux$ sudo apt-get install tree
+
+4. student@ubuntu:~/Desktop/chahla/lab14/linux$ tree -L 1
+.
+├── arch
+├── block
+├── certs
+├── COPYING
+├── CREDITS
+├── crypto
+├── Documentation
+├── drivers
+├── firmware
+├── fs
+├── include
+├── init
+├── ipc
+├── jenkins_build.sh
+├── Jenkinsfile
+├── Kbuild
+├── Kconfig
+├── kernel
+├── lib
+├── LICENSES
+├── MAINTAINERS
+├── Makefile
+├── mm
+├── net
+├── README
+├── README.md
+├── samples
+├── scripts
+├── security
+├── sound
+├── ti_config_fragments
+├── tools
+├── usr
+└── virt
+
+24 directories, 10 files
+
+
+5. student@ubuntu:~/Desktop/chahla/lab14/linux$ du -shc ./*
+130M	./arch
+1.9M	./block
+52K	./certs
+4.0K	./COPYING
+100K	./CREDITS
+3.4M	./crypto
+44M	./Documentation
+537M	./drivers
+156K	./firmware
+40M	./fs
+42M	./include
+192K	./init
+260K	./ipc
+4.0K	./jenkins_build.sh
+4.0K	./Jenkinsfile
+4.0K	./Kbuild
+4.0K	./Kconfig
+9.0M	./kernel
+4.5M	./lib
+196K	./LICENSES
+464K	./MAINTAINERS
+60K	./Makefile
+3.8M	./mm
+32M	./net
+4.0K	./README
+4.0K	./README.md
+1.5M	./samples
+3.5M	./scripts
+2.9M	./security
+36M	./sound
+148K	./ti_config_fragments
+27M	./tools
+52K	./usr
+728K	./virt
+919M	total
+
+
+- Les drivers prennent plus d'espace!
+
+6. student@ubuntu:~/Desktop/chahla/lab14/linux/arch/arm/configs$ ls bb*
+bb.org_defconfig
+
+7. student@ubuntu:~/Desktop/chahla/lab14/linux$ make bb.org_defconfig
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/kconfig/conf.o
+  YACC    scripts/kconfig/zconf.tab.c
+  LEX     scripts/kconfig/zconf.lex.c
+  HOSTCC  scripts/kconfig/zconf.tab.o
+  HOSTLD  scripts/kconfig/conf
+#
+# configuration written to .config
+#
+
+
+8. student@ubuntu:~/Desktop/chahla/lab14/linux$ ls .config
+.config
+student@ubuntu:~/Desktop/chahla/lab14/linux$ vim .config
+
+9. student@ubuntu:~/Desktop/chahla/lab14/linux$ make xconfig
+
+10. 
+
+
+
+
+15. student@ubuntu:~/Desktop/chahla/lab14/linux/arch/arm/boot/dts$ sudo cp am335x-boneblack.dtb /var/lib/tftpboot
+
+student@ubuntu:~/Desktop/chahla/lab14/linux/arch/arm/boot$ sudo cp zImage /var/lib/tftpboot
+
